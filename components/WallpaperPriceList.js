@@ -56,27 +56,27 @@ export default function WallpaperPriceList() {
 
     return (
         <div>
-            <div className="tabs">
+            <div className="filter-chips">
                 <button
-                    className={`tab-btn ${activeBrand === 'all' ? 'active' : ''}`}
+                    className={`filter-chip ${activeBrand === 'all' ? 'active' : ''}`}
                     onClick={() => setActiveBrand('all')}
                 >
                     전체
                 </button>
                 <button
-                    className={`tab-btn ${activeBrand === 'lx' ? 'active' : ''}`}
+                    className={`filter-chip ${activeBrand === 'lx' ? 'active' : ''}`}
                     onClick={() => setActiveBrand('lx')}
                 >
                     LX하우시스
                 </button>
                 <button
-                    className={`tab-btn ${activeBrand === 'gaenari' ? 'active' : ''}`}
+                    className={`filter-chip ${activeBrand === 'gaenari' ? 'active' : ''}`}
                     onClick={() => setActiveBrand('gaenari')}
                 >
                     개나리
                 </button>
                 <button
-                    className={`tab-btn ${activeBrand === 'kcc' ? 'active' : ''}`}
+                    className={`filter-chip ${activeBrand === 'kcc' ? 'active' : ''}`}
                     onClick={() => setActiveBrand('kcc')}
                 >
                     KCC신한
