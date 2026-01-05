@@ -1,71 +1,96 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import WallpaperPriceList from './WallpaperPriceList';
-
-const dummyData = {
-    floor: [
-        { category: "강마루", brand: "lx", name: "강그린", prefix: "LX", price_standard: 45000, price_bulk: 40000, unit: "평" },
-        { category: "강마루", brand: "kcc", name: "숲으로", prefix: "KCC", price_standard: 43000, price_bulk: 39000, unit: "평" },
-        { category: "강화마루", brand: "dongwha", name: "클릭", prefix: "동화", price_standard: 35000, price_bulk: 30000, unit: "평" },
-    ],
-    film: [
-        { category: "솔리드", brand: "lx", name: "베니프", prefix: "LX", price_standard: 15000, price_bulk: 12000, unit: "m" },
-        { category: "우드", brand: "3m", name: "다이노크", prefix: "3M", price_standard: 25000, price_bulk: 20000, unit: "m" },
-    ],
-    jangpan: [
-        { category: "1.8T", brand: "lx", name: "뉴청맥", prefix: "LX", price_standard: 35000, price_bulk: 30000, unit: "m" },
-        { category: "2.2T", brand: "kcc", name: "숲", prefix: "KCC", price_standard: 45000, price_bulk: 40000, unit: "m" },
-    ]
-};
 
 export default function MaterialPriceList() {
     const [activeCategory, setActiveCategory] = useState('wallpaper');
+    const [productsData, setProductsData] = useState({ wallpaper: [], floor: [], film: [], jangpan: [] });
+    const [loading, setLoading] = useState(true);
 
-    const renderDummyList = (data) => {
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await fetch('/api/products');
+                if (res.ok) {
+                    const data = await res.json();
+                    setProductsData(data);
+                }
+            } catch (error) {
+                console.error('Failed to fetch product data', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    const renderPriceList = (data, isWallpaper = false) => {
+        if (!data || data.length === 0) return <div style={{ textAlign: 'center', padding: '50px' }}>데이터가 없습니다.</div>;
+
         const formatPrice = (price) => price.toLocaleString() + '원';
 
-        // Group by category for the dummy data
+        // Group by category
         const grouped = data.reduce((acc, curr) => {
             if (!acc[curr.category]) acc[curr.category] = [];
             acc[curr.category].push(curr);
             return acc;
         }, {});
 
+        // Category Order for Wallpaper (specific sort order)
+        const wallpaperOrder = ["프리미엄실크", "일반실크", "광폭합지", "소폭합지"];
+        const orderedCategories = isWallpaper ? wallpaperOrder : Object.keys(grouped);
+
         return (
             <div className="product-list">
-                {Object.keys(grouped).map((category, index) => (
-                    <div key={category} className="category-section">
-                        <div className="category-title">{category}</div>
-                        {index === 0 && (
-                            <div className="list-header" style={{ position: 'static', marginBottom: '15px' }}>
-                                <div className="list-header-item">제품정보</div>
-                                <div className="list-header-item">일반단가</div>
-                                <div className="list-header-item bulk-col">
-                                    <span className="badge-bulk">✨ 벌크할인</span>
-                                    <span>30만원이상 구매</span>
+                {orderedCategories.map((category, index) => {
+                    if (!grouped[category]) return null;
+
+                    // Show header under the first category title
+                    const showHeader = index === 0;
+
+                    return (
+                        <div key={category} className="category-section">
+                            <div className="category-title">{category}</div>
+                            {showHeader && (
+                                <div className="list-header" style={{ position: 'static', marginBottom: '15px' }}>
+                                    <div className="list-header-item">제품라인</div>
+                                    <div className="list-header-item">일반단가</div>
+                                    <div className="list-header-item bulk-col">
+                                        <span className="badge-bulk">✨ 벌크할인</span>
+                                        <span>30만원이상 구매</span>
+                                    </div>
                                 </div>
-                            </div>
-                        )}
-                        {grouped[category].map((item, idx) => (
-                            <div key={idx} className="product-card">
-                                <div className="product-name-group">
-                                    <span className="brand-badge">{item.prefix}</span>
-                                    <span className="product-name-text">{item.name}</span>
+                            )}
+                            {grouped[category].map((item, idx) => (
+                                <div key={idx} className="product-card">
+                                    <div className="product-name-group">
+                                        <span className="brand-badge">{item.prefix}</span>
+                                        <span className="product-name-text">{item.name}</span>
+                                    </div>
+                                    <div className="price-box price-standard">
+                                        <span className="amount">{formatPrice(item.price_standard)}</span> <span className="unit">/{item.unit}</span>
+                                    </div>
+                                    <div className="price-box price-bulk">
+                                        {item.price_bulk && item.price_bulk > 0 ? (
+                                            <>
+                                                <span className="amount">{formatPrice(item.price_bulk)}</span> <span className="unit">/{item.unit}</span>
+                                            </>
+                                        ) : (
+                                            <span style={{ fontSize: '0.9rem', color: '#95a5a6', fontWeight: 500 }}>미적용</span>
+                                        )}
+                                    </div>
                                 </div>
-                                <div className="price-box price-standard">
-                                    <span className="amount">{formatPrice(item.price_standard)}</span> <span className="unit">/{item.unit}</span>
-                                </div>
-                                <div className="price-box price-bulk">
-                                    <span className="amount">{formatPrice(item.price_bulk)}</span> <span className="unit">/{item.unit}</span>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                ))}
+                            ))}
+                        </div>
+                    );
+                })}
             </div>
         );
     };
+
+    if (loading) return <div style={{ textAlign: 'center', padding: '50px' }}>로딩 중...</div>;
 
     return (
         <div>
@@ -98,10 +123,11 @@ export default function MaterialPriceList() {
             </div>
 
             {/* Content Area */}
-            {activeCategory === 'wallpaper' && <WallpaperPriceList />}
-            {activeCategory === 'floor' && renderDummyList(dummyData.floor)}
-            {activeCategory === 'film' && renderDummyList(dummyData.film)}
-            {activeCategory === 'jangpan' && renderDummyList(dummyData.jangpan)}
+            {activeCategory === 'wallpaper' ? (
+                <WallpaperPriceList data={productsData.wallpaper} />
+            ) : (
+                renderPriceList(productsData[activeCategory])
+            )}
         </div>
     );
 }

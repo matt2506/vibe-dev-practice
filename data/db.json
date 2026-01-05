@@ -1,0 +1,298 @@
+{
+  "wallpaper": [
+    {
+      "category": "프리미엄실크",
+      "brand": "lx",
+      "name": "디아망",
+      "prefix": "LX",
+      "price_standard": 60000,
+      "price_bulk": 55000,
+      "unit": "롤"
+    },
+    {
+      "category": "프리미엄실크",
+      "brand": "lx",
+      "name": "디아망포티스",
+      "prefix": "LX",
+      "price_standard": 70000,
+      "price_bulk": 58000,
+      "unit": "롤"
+    },
+    {
+      "category": "프리미엄실크",
+      "brand": "gaenari",
+      "name": "프리모",
+      "prefix": "개나리",
+      "price_standard": 70000,
+      "price_bulk": 15000,
+      "unit": "롤"
+    },
+    {
+      "category": "프리미엄실크",
+      "brand": "kcc",
+      "name": "파사드",
+      "prefix": "KCC신한",
+      "price_standard": 70000,
+      "price_bulk": 15000,
+      "unit": "롤"
+    },
+    {
+      "category": "프리미엄실크",
+      "brand": "kcc",
+      "name": "파사드월가드",
+      "prefix": "신한",
+      "price_standard": 70000,
+      "price_bulk": 15000,
+      "unit": "롤"
+    },
+    {
+      "category": "프리미엄실크",
+      "brand": "lx",
+      "name": "디아망 (천장지)",
+      "prefix": "LX",
+      "price_standard": 60000,
+      "price_bulk": 53000,
+      "unit": "롤"
+    },
+    {
+      "category": "프리미엄실크",
+      "brand": "gaenari",
+      "name": "로하스",
+      "prefix": "개나리",
+      "price_standard": 58000,
+      "price_bulk": 50000,
+      "unit": "롤"
+    },
+    {
+      "category": "일반실크",
+      "brand": "lx",
+      "name": "베스띠",
+      "prefix": "LX",
+      "price_standard": 60000,
+      "price_bulk": 55000,
+      "unit": "롤"
+    },
+    {
+      "category": "일반실크",
+      "brand": "lx",
+      "name": "지아패브릭",
+      "prefix": "LX",
+      "price_standard": 45000,
+      "price_bulk": 40000,
+      "unit": "롤"
+    },
+    {
+      "category": "일반실크",
+      "brand": "gaenari",
+      "name": "아트북",
+      "prefix": "개나리",
+      "price_standard": 42000,
+      "price_bulk": 38000,
+      "unit": "롤"
+    },
+    {
+      "category": "일반실크",
+      "brand": "gaenari",
+      "name": "에비뉴",
+      "prefix": "개나리",
+      "price_standard": 42000,
+      "price_bulk": 38000,
+      "unit": "롤"
+    },
+    {
+      "category": "일반실크",
+      "brand": "kcc",
+      "name": "스케치",
+      "prefix": "KCC신한",
+      "price_standard": 43000,
+      "price_bulk": 39000,
+      "unit": "롤"
+    },
+    {
+      "category": "일반실크",
+      "brand": "kcc",
+      "name": "심플",
+      "prefix": "KCC신한",
+      "price_standard": 43000,
+      "price_bulk": 39000,
+      "unit": "롤"
+    },
+    {
+      "category": "광폭합지",
+      "brand": "lx",
+      "name": "휘앙세",
+      "prefix": "LX",
+      "price_standard": 40000,
+      "price_bulk": 35000,
+      "unit": "롤"
+    },
+    {
+      "category": "광폭합지",
+      "brand": "lx",
+      "name": "휘앙세 와이드",
+      "prefix": "LX",
+      "price_standard": 42000,
+      "price_bulk": 37000,
+      "unit": "롤"
+    },
+    {
+      "category": "광폭합지",
+      "brand": "gaenari",
+      "name": "트렌디",
+      "prefix": "개나리",
+      "price_standard": 38000,
+      "price_bulk": 33000,
+      "unit": "롤"
+    },
+    {
+      "category": "광폭합지",
+      "brand": "gaenari",
+      "name": "스타일",
+      "prefix": "개나리",
+      "price_standard": 38000,
+      "price_bulk": 33000,
+      "unit": "롤"
+    },
+    {
+      "category": "광폭합지",
+      "brand": "kcc",
+      "name": "아이리스",
+      "prefix": "KCC신한",
+      "price_standard": 39000,
+      "price_bulk": 34000,
+      "unit": "롤"
+    },
+    {
+      "category": "광폭합지",
+      "brand": "kcc",
+      "name": "파인하임",
+      "prefix": "KCC신한",
+      "price_standard": 39000,
+      "price_bulk": 34000,
+      "unit": "롤"
+    },
+    {
+      "category": "소폭합지",
+      "brand": "lx",
+      "name": "소폭",
+      "prefix": "LX",
+      "price_standard": 30000,
+      "price_bulk": 25000,
+      "unit": "롤"
+    },
+    {
+      "category": "소폭합지",
+      "brand": "gaenari",
+      "name": "소폭",
+      "prefix": "개나리",
+      "price_standard": 28000,
+      "price_bulk": 23000,
+      "unit": "롤"
+    },
+    {
+      "category": "소폭합지",
+      "brand": "kcc",
+      "name": "소폭",
+      "prefix": "KCC신한",
+      "price_standard": 29000,
+      "price_bulk": 24000,
+      "unit": "롤"
+    },
+    {
+      "category": "소폭합지",
+      "brand": "lx",
+      "name": "소폭 플러스",
+      "prefix": "LX",
+      "price_standard": 32000,
+      "price_bulk": 27000,
+      "unit": "롤"
+    },
+    {
+      "category": "소폭합지",
+      "brand": "gaenari",
+      "name": "소폭 베이직",
+      "prefix": "개나리",
+      "price_standard": 28000,
+      "price_bulk": 23000,
+      "unit": "롤"
+    },
+    {
+      "category": "소폭합지",
+      "brand": "kcc",
+      "name": "소폭 라이트",
+      "prefix": "KCC신한",
+      "price_standard": 29000,
+      "price_bulk": 24000,
+      "unit": "롤"
+    }
+  ],
+  "floor": [
+    {
+      "category": "강마루",
+      "brand": "lx",
+      "name": "강그린",
+      "prefix": "LX",
+      "price_standard": 45000,
+      "price_bulk": 40000,
+      "unit": "평"
+    },
+    {
+      "category": "강마루",
+      "brand": "kcc",
+      "name": "숲으로",
+      "prefix": "KCC",
+      "price_standard": 43000,
+      "price_bulk": 39000,
+      "unit": "평"
+    },
+    {
+      "category": "강화마루",
+      "brand": "dongwha",
+      "name": "클릭",
+      "prefix": "동화",
+      "price_standard": 35000,
+      "price_bulk": 30000,
+      "unit": "평"
+    }
+  ],
+  "film": [
+    {
+      "category": "솔리드",
+      "brand": "lx",
+      "name": "베니프",
+      "prefix": "LX",
+      "price_standard": 15000,
+      "price_bulk": 12000,
+      "unit": "m"
+    },
+    {
+      "category": "우드",
+      "brand": "3m",
+      "name": "다이노크",
+      "prefix": "3M",
+      "price_standard": 25000,
+      "price_bulk": 20000,
+      "unit": "m"
+    }
+  ],
+  "jangpan": [
+    {
+      "category": "1.8T",
+      "brand": "lx",
+      "name": "뉴청맥",
+      "prefix": "LX",
+      "price_standard": 35000,
+      "price_bulk": 30000,
+      "unit": "m"
+    },
+    {
+      "category": "2.2T",
+      "brand": "kcc",
+      "name": "숲",
+      "prefix": "KCC",
+      "price_standard": 45000,
+      "price_bulk": 40000,
+      "unit": "m"
+    }
+  ]
+}
