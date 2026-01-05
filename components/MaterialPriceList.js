@@ -34,9 +34,19 @@ export default function MaterialPriceList() {
 
         return (
             <div className="product-list">
-                {Object.keys(grouped).map(category => (
+                {Object.keys(grouped).map((category, index) => (
                     <div key={category} className="category-section">
                         <div className="category-title">{category}</div>
+                        {index === 0 && (
+                            <div className="list-header" style={{ position: 'static', marginBottom: '15px' }}>
+                                <div className="list-header-item">제품정보</div>
+                                <div className="list-header-item">일반단가</div>
+                                <div className="list-header-item bulk-col">
+                                    <span className="badge-bulk">✨ 벌크할인</span>
+                                    <span>30만원이상 구매</span>
+                                </div>
+                            </div>
+                        )}
                         {grouped[category].map((item, idx) => (
                             <div key={idx} className="product-card">
                                 <div className="product-name-group">

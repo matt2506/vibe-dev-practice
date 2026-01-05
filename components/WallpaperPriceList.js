@@ -83,38 +83,46 @@ export default function WallpaperPriceList() {
                 </button>
             </div>
 
-            <div className="list-header">
-                <div className="list-header-item">제품정보</div>
-                <div className="list-header-item">일반단가</div>
-                <div className="list-header-item bulk-col">
-                    <span className="badge-bulk">✨ 벌크할인</span>
-                    <span>30만원이상 구매</span>
-                </div>
-            </div>
-
             <div className="product-list">
-                {categoryOrder.map(category => {
-                    if (!grouped[category]) return null;
-                    return (
-                        <div key={category} className="category-section">
-                            <div className="category-title">{category}</div>
-                            {grouped[category].map((item, idx) => (
-                                <div key={idx} className="product-card">
-                                    <div className="product-name-group">
-                                        <span className="brand-badge">{item.prefix}</span>
-                                        <span className="product-name-text">{item.name}</span>
+                {(() => {
+                    let headerRendered = false;
+                    return categoryOrder.map(category => {
+                        if (!grouped[category]) return null;
+
+                        const showHeader = !headerRendered;
+                        if (showHeader) headerRendered = true;
+
+                        return (
+                            <div key={category} className="category-section">
+                                <div className="category-title">{category}</div>
+                                {showHeader && (
+                                    <div className="list-header" style={{ position: 'static', marginBottom: '15px' }}>
+                                        <div className="list-header-item">제품정보</div>
+                                        <div className="list-header-item">일반단가</div>
+                                        <div className="list-header-item bulk-col">
+                                            <span className="badge-bulk">✨ 벌크할인</span>
+                                            <span>30만원이상 구매</span>
+                                        </div>
                                     </div>
-                                    <div className="price-box price-standard">
-                                        <span className="amount">{formatPrice(item.price_standard)}</span> <span className="unit">/롤</span>
+                                )}
+                                {grouped[category].map((item, idx) => (
+                                    <div key={idx} className="product-card">
+                                        <div className="product-name-group">
+                                            <span className="brand-badge">{item.prefix}</span>
+                                            <span className="product-name-text">{item.name}</span>
+                                        </div>
+                                        <div className="price-box price-standard">
+                                            <span className="amount">{formatPrice(item.price_standard)}</span> <span className="unit">/롤</span>
+                                        </div>
+                                        <div className="price-box price-bulk">
+                                            <span className="amount">{formatPrice(item.price_bulk)}</span> <span className="unit">/롤</span>
+                                        </div>
                                     </div>
-                                    <div className="price-box price-bulk">
-                                        <span className="amount">{formatPrice(item.price_bulk)}</span> <span className="unit">/롤</span>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    );
-                })}
+                                ))}
+                            </div>
+                        );
+                    });
+                })()}
                 {filteredProducts.length === 0 && (
                     <div style={{ textAlign: 'center', padding: '20px', color: '#888' }}>
                         해당 브랜드의 상품이 없습니다.
