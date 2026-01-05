@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>벽지 단가표</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 class="page-title">벽지 단가표</h1>
+            <div class="tabs">
+                <button class="tab-btn active" data-brand="all">전체</button>
+                <button class="tab-btn" data-brand="lx">LX하우시스</button>
+                <button class="tab-btn" data-brand="gaenari">개나리</button>
+                <button class="tab-btn" data-brand="kcc">KCC신한</button>
+            </div>
+        </header>
+
+        <div class="list-header">
+            <div class="list-header-item">제품정보</div>
+            <div class="list-header-item">일반단가</div>
+            <div class="list-header-item bulk-col">
+                <span class="badge-bulk">✨ 벌크할인</span>
+                <span>30만원이상 구매</span>
+            </div>
+        </div>
+
+        <div id="product-list" class="product-list">
+            <!-- Product items will be injected here via JavaScript -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
